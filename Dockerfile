@@ -45,7 +45,7 @@ RUN apt-get update \
 RUN wget --no-check-certificate https://github.com/suttang/documentation-printer-man/archive/master.tar.gz \
     && tar -zxvf master.tar.gz \
     && rm master.tar.gz \
-    && mv documentation-printer-man app \
+    && mv documentation-printer-man-master app \
     && cd app/ \
     && npm install --production
 
@@ -53,13 +53,13 @@ RUN mkdir -p /usr/share/fonts/opentype/notoserif \
     && cd /usr/share/fonts/opentype/notoserif \
     && wget https://noto-website.storage.googleapis.com/pkgs/NotoSerifCJKjp-hinted.zip \
     && unzip NotoSerifCJKjp-hinted.zip \
-    && rm NotoSerifCJKjp-hinted.zip \
+    && rm NotoSerifCJKjp-hinted.zip
 
 RUN mkdir -p /usr/share/fonts/opentype/notosans \
-    && cd /usr/share/fonts/opentype/sans \
+    && cd /usr/share/fonts/opentype/notosans \
     && wget https://noto-website.storage.googleapis.com/pkgs/NotoSansCJKjp-hinted.zip \
     && unzip NotoSansCJKjp-hinted.zip \
-    && rm NotoSansCJKjp-hinted.zip \
+    && rm NotoSansCJKjp-hinted.zip
 
 RUN fc-cache -fv
 
